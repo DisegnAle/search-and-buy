@@ -1,3 +1,4 @@
+import { mapGetters } from "vuex";
 export default {
   name: "login-form",
   components: {},
@@ -5,7 +6,15 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      loginForm: "authentication/getLoginData",
+    }),
+  },
   mounted() {},
-  methods: {},
+  methods: {
+    onSubmit() {
+      console.log("loggin");
+    },
+  },
 };

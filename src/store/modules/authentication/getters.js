@@ -1,1 +1,5 @@
-export const getters = {};
+export const getters = {
+  getLoginData(state) {
+    return state.loginForm;
+  },
+};
