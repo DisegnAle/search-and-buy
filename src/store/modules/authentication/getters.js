@@ -5,4 +5,7 @@ export const getters = {
   getIdToken(state) {
     return state.idToken;
   },
+  isAuthenticated(state) {
+    return !!state.idToken;
+  },
 };
