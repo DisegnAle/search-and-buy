@@ -1,14 +1,9 @@
 export default {
-  name: "search-form",
+  name: "basket",
   components: {},
   props: [],
   data() {
-    return {
-      searchForm: {
-        name: "",
-        type: "",
-      },
-    };
+    return {};
   },
   computed: {},
   mounted() {},

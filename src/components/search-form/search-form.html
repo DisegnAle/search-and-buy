@@ -1,5 +1,22 @@
-
 <section class="search-form">
-  <h1>search-form Component</h1>
-</section>
+  <el-form :inline="true" :model="searchForm" class="demo-form-inline">
 
+    <!-- name -->
+    <el-form-item label="Product name">
+      <el-input clearable v-model="searchForm.name" placeholder="Type a product's name"></el-input>
+    </el-form-item>
+
+    <!-- type -->
+    <el-form-item label="Product type">
+      <el-select clearable v-model="value" placeholder="Select type">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+        </el-option>
+      </el-select>
+    </el-form-item>
+
+    <!-- search btn -->
+    <el-form-item>
+      <el-button type="primary" @click="onSubmit">Search</el-button>
+    </el-form-item>
+  </el-form>
+</section>
