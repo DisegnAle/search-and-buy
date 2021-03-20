@@ -1,3 +1,5 @@
+import { mapGetters } from "vuex";
+
 export default {
   name: "search-form",
   components: {},
@@ -10,7 +12,15 @@ export default {
       },
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      types: "products/getTypes",
+    }),
+  },
   mounted() {},
-  methods: {},
+  methods: {
+    onSubmit() {
+      console.log("search");
+    },
+  },
 };

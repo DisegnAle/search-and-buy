@@ -1,1 +1,5 @@
-export const getters = {};
+export const getters = {
+  getTypes(state) {
+    return state.types;
+  },
+};
