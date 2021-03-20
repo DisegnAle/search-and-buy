@@ -1,5 +1,33 @@
 
 <section class="products">
-  <h1>products Component</h1>
+  
+  <!-- search panel -->
+  <el-row> 
+    <el-col>
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>Search products</span>
+        </div>
+        <div>
+          <search-form></search-form>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
+
+  <!-- products list -->
+  <el-row class="margin-top--lg"> 
+    <el-col>
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>Products list</span>
+        </div>
+        <div>
+          <products-list></products-list>
+        </div>
+      </el-card>
+    </el-col>
+  </el-row>
+
 </section>
 
