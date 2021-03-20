@@ -1,20 +1,20 @@
-import { mapGetters } from "vuex";
 export default {
   name: "login-form",
   components: {},
   props: [],
   data() {
-    return {};
+    return {
+      loginForm: {
+        username: "",
+        password: "",
+      },
+    };
   },
-  computed: {
-    ...mapGetters({
-      loginForm: "authentication/getLoginData",
-    }),
-  },
+  computed: {},
   mounted() {},
   methods: {
-    onSubmit() {
-      console.log("loggin");
+    onSubmit(formData) {
+      this.$store.dispatch("login", formData);
     },
   },
 };

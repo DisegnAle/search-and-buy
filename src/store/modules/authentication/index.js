@@ -4,7 +4,6 @@ import { actions } from "@/store/modules/authentication/actions.js";
 import { getters } from "@/store/modules/authentication/getters.js";
 
 export default {
-  namespaced: true,
   state,
   getters,
   mutations,
