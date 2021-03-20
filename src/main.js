@@ -8,6 +8,7 @@ import VueAxios from "vue-axios";
 import ElementUI from "element-ui";
 import { auth } from "./firebase";
 import "element-ui/lib/theme-chalk/index.css";
+import "element-ui/lib/theme-chalk/reset.css";
 import "./assets/styles/index.less";
 
 Vue.use(Vuex);
