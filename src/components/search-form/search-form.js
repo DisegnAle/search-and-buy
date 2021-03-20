@@ -19,8 +19,8 @@ export default {
   },
   mounted() {},
   methods: {
-    onSubmit() {
-      console.log("search");
+    onSubmit(searchFormData) {
+      this.$store.dispatch("products/searchProducts", searchFormData);
     },
   },
 };

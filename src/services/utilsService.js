@@ -8,4 +8,8 @@ export const UtilsService = {
     }
     return finalString;
   },
+
+  isInputFilled(inputName) {
+    return !!inputName;
+  },
 };
