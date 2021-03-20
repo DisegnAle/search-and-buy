@@ -6,6 +6,7 @@ import Vuex from "vuex";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import ElementUI from "element-ui";
+import { auth } from "./firebase";
 import "element-ui/lib/theme-chalk/index.css";
 import "./assets/styles/index.less";
 
@@ -15,8 +16,13 @@ Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
+let app;
+auth.onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: (h) => h(App),
+    }).$mount("#app");
+  }
+});
