@@ -1,4 +1,5 @@
 import { ProductsService } from "@/services/productsService.js";
+import { UtilsService } from "@/services/utilsService.js";
 
 export const actions = {
   searchProducts: ({ commit }, searchFormData) => {
@@ -7,7 +8,13 @@ export const actions = {
       commit("setSearchResults", data);
     });
   },
-  addProductToCart: ({ commit }, product) => {
-    commit("addProductToCart", product);
+  addProductToCart: ({ commit, getters }, product) => {
+    if (
+      UtilsService.isItemInList({ list: getters.getBasketList, item: product })
+    ) {
+      console.log("già presente");
+    } else {
+      commit("addProductToCart", product);
+    }
   },
 };

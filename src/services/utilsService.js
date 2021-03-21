@@ -12,4 +12,9 @@ export const UtilsService = {
   isInputFilled(inputName) {
     return !!inputName;
   },
+  isItemInList({ list, item }) {
+    return list.find((_item) => {
+      return _item.id === item.id;
+    });
+  },
 };
