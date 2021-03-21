@@ -9,11 +9,16 @@ export default {
         password: "",
       },
       rules: {
-        name: [
+        username: [
           {
             min: 0,
             max: 20,
             message: "Length should be 0 to 20",
+            trigger: "blur",
+          },
+          {
+            required: true,
+            message: "Please input Username",
             trigger: "blur",
           },
         ],
@@ -22,6 +27,11 @@ export default {
             min: 0,
             max: 20,
             message: "Length should be 0 to 20",
+            trigger: "blur",
+          },
+          {
+            required: true,
+            message: "Please input Password",
             trigger: "blur",
           },
         ],
