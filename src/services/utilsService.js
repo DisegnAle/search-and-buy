@@ -22,7 +22,7 @@ export const UtilsService = {
     Notification(options);
   },
   isOnlyAlphabeticCharacters(value) {
-    return /^[a-zA-Z]+$/.test(value);
+    return /^[a-zA-Z ]+$/.test(value);
   },
   parseFirebaseFetchedData(snapshot) {
     return snapshot.docs.map((doc) => ({
