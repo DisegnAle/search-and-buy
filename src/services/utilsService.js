@@ -1,3 +1,4 @@
+import { Notification } from "element-ui";
 export const UtilsService = {
   composeString(...strings) {
     let finalString = "";
@@ -16,5 +17,8 @@ export const UtilsService = {
     return list.find((_item) => {
       return _item.id === item.id;
     });
+  },
+  showNotification(options) {
+    Notification(options);
   },
 };

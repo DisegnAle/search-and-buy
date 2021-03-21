@@ -9,10 +9,19 @@ export const actions = {
     });
   },
   addProductToCart: ({ commit, getters }, product) => {
-    if (
-      UtilsService.isItemInList({ list: getters.getBasketList, item: product })
-    ) {
-      console.log("già presente");
+    const isProductInCart = UtilsService.isItemInList({
+      list: getters.getBasketList,
+      item: product,
+    });
+
+    if (isProductInCart) {
+      const notificationData = {
+        title: "Warning",
+        type: "warning",
+        message: "Product already present in the cart",
+      };
+
+      UtilsService.showNotification(notificationData);
     } else {
       commit("addProductToCart", product);
     }
