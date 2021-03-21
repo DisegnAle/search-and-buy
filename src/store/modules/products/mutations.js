@@ -1,5 +1,8 @@
 export const mutations = {
-  setProductList(state, searchResults) {
+  setSearchResults(state, searchResults) {
     state.searchResults = [...searchResults];
+  },
+  addProductToCart(state, product) {
+    state.basketList.push(product);
   },
 };

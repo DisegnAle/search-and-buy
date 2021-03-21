@@ -33,4 +33,10 @@
     }
   }
 }
+
+.el-table {
+  .cell {
+    word-break: initial !important;
+  }
+}
 </style>

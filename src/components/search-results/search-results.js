@@ -14,11 +14,8 @@ export default {
   },
   mounted() {},
   methods: {
-    handleChangeQuantity(quantityValue) {
-      console.log(quantityValue);
-    },
     addToCart(product) {
-      console.log(product);
+      this.$store.dispatch("products/addProductToCart", product);
     },
   },
 };

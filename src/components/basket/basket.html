@@ -1,5 +1,16 @@
 
 <section class="basket">
-  <h1>basket Component</h1>
+  <el-table :empty-text="'No products in cart'" :header-cell-style="{textAlign: 'center'}" :cell-style="{textAlign: 'center'}" :data="basketList"
+    style="width: 100%">
+
+    <!-- name -->
+    <el-table-column prop="name" label="Name">
+    </el-table-column>
+
+    <!-- quantity -->
+    <el-table-column prop="quantity" label="Quantity">
+    </el-table-column>
+
+  </el-table>
 </section>
 

@@ -1,3 +1,4 @@
+import { mapGetters } from "vuex";
 export default {
   name: "basket",
   components: {},
@@ -5,7 +6,11 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      basketList: "products/getBasketList",
+    }),
+  },
   mounted() {},
   methods: {},
 };

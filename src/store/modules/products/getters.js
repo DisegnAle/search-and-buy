@@ -7,4 +7,7 @@ export const getters = {
       return Object.assign({}, singleResult, { quantity: 0 });
     });
   },
+  getBasketList(state) {
+    return state.basketList;
+  },
 };
