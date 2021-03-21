@@ -8,6 +8,24 @@ export default {
         username: "",
         password: "",
       },
+      rules: {
+        name: [
+          {
+            min: 0,
+            max: 20,
+            message: "Length should be 0 to 20",
+            trigger: "blur",
+          },
+        ],
+        password: [
+          {
+            min: 0,
+            max: 20,
+            message: "Length should be 0 to 20",
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
   computed: {},

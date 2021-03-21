@@ -21,7 +21,7 @@ export const actions = {
         router.push({ name: "products" });
       })
       .catch((err) => {
-        console.log(err);
+        AuthService.manageRequestError(err);
       });
   },
 };
