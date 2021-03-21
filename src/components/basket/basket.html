@@ -11,6 +11,13 @@
     <el-table-column prop="quantity" label="Quantity">
     </el-table-column>
 
+    <!-- remove product -->
+    <el-table-column label="Remove">
+      <template slot-scope="scope">
+        <el-button size="mini" @click="removeFromCart(scope.row)" type="primary" icon="el-icon-minus" circle></el-button>
+      </template>
+    </el-table-column>
+
   </el-table>
 </section>
 

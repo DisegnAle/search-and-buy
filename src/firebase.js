@@ -21,4 +21,4 @@ const auth = firebase.auth();
 const productsCollection = db.collection("products");
 
 // export utils/refs
-export { db, auth, productsCollection };
+export { db, auth, productsCollection, firebaseConfig };

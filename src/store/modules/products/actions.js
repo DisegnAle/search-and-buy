@@ -20,10 +20,13 @@ export const actions = {
         type: "warning",
         message: "Product already present in the cart",
       };
-
       UtilsService.showNotification(notificationData);
     } else {
       commit("addProductToCart", product);
     }
+  },
+  removeProductFromCart: ({ commit, getters }, product) => {
+    const basketList = getters.getBasketList;
+    commit("removeProductFromCart", { product, basketList });
   },
 };

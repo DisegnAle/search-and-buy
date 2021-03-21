@@ -12,5 +12,9 @@ export default {
     }),
   },
   mounted() {},
-  methods: {},
+  methods: {
+    removeFromCart(product) {
+      this.$store.dispatch("products/removeProductFromCart", product);
+    },
+  },
 };
