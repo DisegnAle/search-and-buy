@@ -5,9 +5,7 @@ export default {
   components: {},
   props: [],
   data() {
-    return {
-      num: 0,
-    };
+    return {};
   },
   computed: {
     ...mapGetters({
@@ -16,8 +14,8 @@ export default {
   },
   mounted() {},
   methods: {
-    handleChangeQuantity(product) {
-      console.log(product);
+    handleChangeQuantity(quantityValue) {
+      console.log(quantityValue);
     },
     addToCart(product) {
       console.log(product);

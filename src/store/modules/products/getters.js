@@ -3,6 +3,8 @@ export const getters = {
     return state.types;
   },
   getSearchResults(state) {
-    return state.searchResults;
+    return state.searchResults.map((singleResult) => {
+      return Object.assign({}, singleResult, { quantity: 0 });
+    });
   },
 };

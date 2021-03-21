@@ -1,5 +1,5 @@
 
-<section class="products-list">
+<section class="search-results">
   <el-table
   :data="searchedProducts"
   style="width: 100%">
@@ -22,7 +22,7 @@
   <el-table-column
     label="Quantity">
     <template slot-scope="scope">
-      <el-input-number v-model="num" @change="handleChangeQuantity(scope.row)" :min="0" :max="10"></el-input-number>
+      <el-input-number v-model="scope.row.quantity" @change="handleChangeQuantity(scope.row.quantity)" :min="0" :max="10"></el-input-number>
     </template>
   </el-table-column>
 
