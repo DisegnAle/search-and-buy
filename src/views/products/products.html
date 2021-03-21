@@ -1,33 +1,52 @@
-
 <section class="products">
-  
-  <!-- search panel -->
-  <el-row> 
-    <el-col>
-      <el-card class="box-card">
-        <div slot="header" class="clearfix">
-          <span>Search products</span>
-        </div>
-        <div>
-          <search-form></search-form>
-        </div>
-      </el-card>
+
+  <el-row :gutter="30">
+    <el-col :xs="24" :md="16">
+      <!-- search panel -->
+      <el-row>
+        <el-col>
+          <el-card class="box-card">
+            <div slot="header" class="clearfix">
+              <span>Search products</span>
+            </div>
+            <div>
+              <search-form></search-form>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+
+      <!-- products list -->
+      <el-row class="margin-top--lg">
+        <el-col>
+          <el-card class="box-card">
+            <div slot="header" class="clearfix">
+              <span>Searched results</span>
+            </div>
+            <div>
+              <search-results></search-results>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </el-col>
+    <el-col :xs="24" :md="8">
+      <!-- basket -->
+      <el-row>
+        <el-col>
+          <el-card class="box-card">
+            <div slot="header" class="clearfix">
+              <span>Cart</span>
+            </div>
+            <div>
+              <basket></basket>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
     </el-col>
   </el-row>
 
-  <!-- products list -->
-  <el-row class="margin-top--lg"> 
-    <el-col>
-      <el-card class="box-card">
-        <div slot="header" class="clearfix">
-          <span>Searched results</span>
-        </div>
-        <div>
-          <search-results></search-results>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
+
 
 </section>
-
