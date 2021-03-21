@@ -1,5 +1,5 @@
 export const mutations = {
-  setProductList(state, productsList) {
-    state.productsList = [...productsList];
+  setProductList(state, searchResults) {
+    state.searchResults = [...searchResults];
   },
 };

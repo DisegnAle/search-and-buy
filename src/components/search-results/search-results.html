@@ -1,0 +1,39 @@
+
+<section class="products-list">
+  <el-table
+  :data="searchedProducts"
+  style="width: 100%">
+
+  <!-- name -->
+  <el-table-column
+        prop="name"
+        label="Name"
+        width="400">
+      </el-table-column>
+
+  <!-- type -->
+  <el-table-column
+        prop="type"
+        label="Type"
+        >
+      </el-table-column>
+
+  <!-- quantity -->
+  <el-table-column
+    label="Quantity">
+    <template slot-scope="scope">
+      <el-input-number v-model="num" @change="handleChangeQuantity(scope.row)" :min="0" :max="10"></el-input-number>
+    </template>
+  </el-table-column>
+
+  <!-- add btn -->
+  <el-table-column
+    label="Add to cart">
+    <template slot-scope="scope">
+      <el-button @click="addToCart(scope.row)" type="primary" icon="el-icon-plus" circle></el-button>
+    </template>
+  </el-table-column>
+  
+</el-table>
+</section>
+

@@ -1,9 +1,9 @@
-import productsList from "@/components/products-list/index.vue";
+import searchResults from "@/components/search-results/index.vue";
 import searchForm from "@/components/search-form/index.vue";
 export default {
   name: "products",
   components: {
-    productsList,
+    searchResults,
     searchForm,
   },
   props: [],
