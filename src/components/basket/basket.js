@@ -8,13 +8,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      basketList: "products/getBasketList",
+      basketList: "basket/getBasketList",
     }),
   },
   mounted() {},
   methods: {
     removeFromCart(product) {
-      this.$store.dispatch("products/removeProductFromCart", product);
+      this.$store.dispatch("basket/removeProductFromCart", product);
     },
   },
 };

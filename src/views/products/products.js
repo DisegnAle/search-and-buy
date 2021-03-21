@@ -13,6 +13,8 @@ export default {
     return {};
   },
   computed: {},
-  mounted() {},
+  mounted() {
+    this.$store.dispatch("basket/fetchDataFromCart");
+  },
   methods: {},
 };

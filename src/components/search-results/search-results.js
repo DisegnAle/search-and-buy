@@ -15,7 +15,7 @@ export default {
   mounted() {},
   methods: {
     addToCart(product) {
-      this.$store.dispatch("products/addProductToCart", product);
+      this.$store.dispatch("basket/addProductToCart", product);
     },
   },
 };

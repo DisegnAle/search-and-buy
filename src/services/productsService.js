@@ -15,16 +15,8 @@ export const ProductsService = {
     }
     return products;
   },
-
   searchProductsRequest(searchFormData) {
     const products = this.setQuery(searchFormData);
     return products.get();
-  },
-
-  parseFetchedProducts(snapshot) {
-    return snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
   },
 };

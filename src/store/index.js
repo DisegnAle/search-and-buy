@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import authentication from "@/store/modules/authentication/index.js";
 import products from "@/store/modules/products/index.js";
+import basket from "@/store/modules/basket/index.js";
 
 Vue.use(Vuex);
 
@@ -13,5 +14,6 @@ export default new Vuex.Store({
   modules: {
     authentication,
     products,
+    basket,
   },
 });

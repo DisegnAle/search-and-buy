@@ -13,9 +13,9 @@ export const UtilsService = {
   isInputFilled(inputName) {
     return !!inputName;
   },
-  isItemInList({ list, item }) {
+  isItemInList({ list, item, currentItemProp, targetItemProp }) {
     return list.find((_item) => {
-      return _item.id === item.id;
+      return _item[targetItemProp] === item[currentItemProp];
     });
   },
   showNotification(options) {
@@ -23,5 +23,11 @@ export const UtilsService = {
   },
   isOnlyAlphabeticCharacters(value) {
     return /^[a-zA-Z]+$/.test(value);
+  },
+  parseFirebaseFetchedData(snapshot) {
+    return snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
   },
 };
