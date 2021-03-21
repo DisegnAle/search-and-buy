@@ -1,6 +1,8 @@
 
 <section class="search-results">
   <el-table
+  :header-cell-style="{textAlign: 'center'}"
+  :cell-style="{textAlign: 'center'}"
   :data="searchedProducts"
   style="width: 100%">
 
@@ -8,7 +10,7 @@
   <el-table-column
         prop="name"
         label="Name"
-        width="400">
+        width="200">
       </el-table-column>
 
   <!-- type -->
@@ -22,7 +24,7 @@
   <el-table-column
     label="Quantity">
     <template slot-scope="scope">
-      <el-input-number v-model="scope.row.quantity" @change="handleChangeQuantity(scope.row.quantity)" :min="0" :max="10"></el-input-number>
+      <el-input-number size="mini" v-model="scope.row.quantity" @change="handleChangeQuantity(scope.row.quantity)" :min="0" :max="10"></el-input-number>
     </template>
   </el-table-column>
 
@@ -30,7 +32,7 @@
   <el-table-column
     label="Add to cart">
     <template slot-scope="scope">
-      <el-button @click="addToCart(scope.row)" type="primary" icon="el-icon-plus" circle></el-button>
+      <el-button size="mini" @click="addToCart(scope.row)" type="primary" icon="el-icon-plus" circle></el-button>
     </template>
   </el-table-column>
   
