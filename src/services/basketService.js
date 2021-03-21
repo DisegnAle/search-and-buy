@@ -7,18 +7,12 @@ export const BasketService = {
       .collection("basket")
       .get();
   },
-  addProductToCart(product) {
+  addProductToCart(basketProduct) {
     return db
       .collection("users")
       .doc(auth.currentUser.uid)
       .collection("basket")
-      .add({
-        productId: product.id,
-        userId: auth.currentUser.uid,
-        quantity: product.quantity,
-        name: product.name,
-        description: product.description,
-      });
+      .add(basketProduct);
   },
   removeProductFromCart(productId) {
     return db

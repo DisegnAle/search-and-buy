@@ -1,5 +1,6 @@
 import { UtilsService } from "@/services/utilsService.js";
 import { BasketService } from "@/services/basketService.js";
+import { auth } from "@/firebase.js";
 
 export const actions = {
   fetchDataFromCart: ({ commit }) => {
@@ -28,9 +29,16 @@ export const actions = {
       };
       UtilsService.showNotification(notificationData);
     } else {
-      BasketService.addProductToCart(product).then((response) => {
-        product.id = response.id;
-        commit("addProductsToCart", [product]);
+      const basketProduct = {
+        productId: product.id,
+        userId: auth.currentUser.uid,
+        quantity: product.quantity,
+        name: product.name,
+      };
+
+      BasketService.addProductToCart(basketProduct).then((response) => {
+        basketProduct.id = response.id;
+        commit("addProductsToCart", [basketProduct]);
       });
     }
   },
