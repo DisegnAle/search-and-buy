@@ -21,4 +21,7 @@ export const UtilsService = {
   showNotification(options) {
     Notification(options);
   },
+  isOnlyAlphabeticCharacters(value) {
+    return /^[a-zA-Z]+$/.test(value);
+  },
 };

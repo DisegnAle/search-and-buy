@@ -1,4 +1,5 @@
 import { mapGetters } from "vuex";
+import { ValidationsService } from "@/services/validationsService.js";
 
 export default {
   name: "search-form",
@@ -10,6 +11,17 @@ export default {
         name: "",
         type: "",
       },
+      rules: {
+        name: [
+          { validator: ValidationsService.onlyLettersAllowed, trigger: "blur" },
+          {
+            min: 0,
+            max: 30,
+            message: "Length should be 0 to 30",
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
   computed: {
@@ -19,8 +31,14 @@ export default {
   },
   mounted() {},
   methods: {
-    onSubmit(searchFormData) {
-      this.$store.dispatch("products/searchProducts", searchFormData);
+    onSubmit(formData, formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          this.$store.dispatch("products/searchProducts", formData);
+        } else {
+          return false;
+        }
+      });
     },
   },
 };
