@@ -15,7 +15,9 @@ export const actions = {
     AuthService.loginRequest(adaptedLoginFormData)
       .then((response) => {
         const idToken = response.data.idToken;
+        const idUser = response.data.localId;
         commit("setIdToken", idToken);
+        commit("setIdUser", idUser);
       })
       .then(() => {
         router.push({ name: "products" });

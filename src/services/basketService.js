@@ -1,23 +1,19 @@
-import { db, auth } from "@/firebase.js";
+import { db } from "@/firebase.js";
 export const BasketService = {
-  fetchDataFromCart() {
-    return db
-      .collection("users")
-      .doc(auth.currentUser.uid)
-      .collection("basket")
-      .get();
+  fetchDataFromCart(idUser) {
+    return db.collection("users").doc(idUser).collection("basket").get();
   },
-  addProductToCart(basketProduct) {
+  addProductToCart(basketProduct, idUser) {
     return db
       .collection("users")
-      .doc(auth.currentUser.uid)
+      .doc(idUser)
       .collection("basket")
       .add(basketProduct);
   },
-  removeProductFromCart(productId) {
+  removeProductFromCart(productId, idUser) {
     return db
       .collection("users")
-      .doc(auth.currentUser.uid)
+      .doc(idUser)
       .collection("basket")
       .doc(productId)
       .delete();

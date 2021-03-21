@@ -1,10 +1,10 @@
 import { UtilsService } from "@/services/utilsService.js";
 import { BasketService } from "@/services/basketService.js";
-import { auth } from "@/firebase.js";
 
 export const actions = {
-  fetchDataFromCart: ({ commit }) => {
-    BasketService.fetchDataFromCart().then((snapshot) => {
+  fetchDataFromCart: ({ commit, rootState }) => {
+    const idUser = rootState.authentication.idUser;
+    BasketService.fetchDataFromCart(idUser).then((snapshot) => {
       const existingBasketList = UtilsService.parseFirebaseFetchedData(
         snapshot
       );
@@ -13,7 +13,7 @@ export const actions = {
       }
     });
   },
-  addProductToCart: ({ commit, getters }, product) => {
+  addProductToCart: ({ commit, getters, rootState }, product) => {
     const isProductInCart = UtilsService.isItemInList({
       list: getters.getBasketList,
       item: product,
@@ -29,22 +29,24 @@ export const actions = {
       };
       UtilsService.showNotification(notificationData);
     } else {
+      const idUser = rootState.authentication.idUser;
       const basketProduct = {
         productId: product.id,
-        userId: auth.currentUser.uid,
+        userId: idUser,
         quantity: product.quantity,
         name: product.name,
       };
 
-      BasketService.addProductToCart(basketProduct).then((response) => {
+      BasketService.addProductToCart(basketProduct, idUser).then((response) => {
         basketProduct.id = response.id;
         commit("addProductsToCart", [basketProduct]);
       });
     }
   },
-  removeProductFromCart: ({ commit }, product) => {
+  removeProductFromCart: ({ commit, rootState }, product) => {
     const productId = product.id;
-    BasketService.removeProductFromCart(productId)
+    const idUser = rootState.authentication.idUser;
+    BasketService.removeProductFromCart(productId, idUser)
       .then(function () {
         commit("removeProductFromCart", {
           productId,
