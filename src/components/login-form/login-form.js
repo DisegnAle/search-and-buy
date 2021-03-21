@@ -41,8 +41,14 @@ export default {
   computed: {},
   mounted() {},
   methods: {
-    onSubmit(formData) {
-      this.$store.dispatch("login", formData);
+    onSubmit(formData, formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          this.$store.dispatch("login", formData);
+        } else {
+          return false;
+        }
+      });
     },
   },
 };
