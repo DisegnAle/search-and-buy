@@ -1,4 +1,6 @@
-# rs2-assessment
+# Search and buy
+
+Application built with Vue3 simulating a shopping cart tool 
 
 ## Project setup
 ```
